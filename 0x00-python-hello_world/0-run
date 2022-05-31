@@ -1,3 +1,2 @@
 #!/bin/bash
-PYCWD=$PYFILE
-
+Python3 $PYFILE
