@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-  for char in range(97, 123):
+if __name__ == "__main__":
+    for char in range(97, 123):
         print("{:c}".format(char), end="")
