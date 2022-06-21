@@ -1,17 +1,21 @@
 #!/usr/bin/python3
-def safe_print_integer_err(value):
+def safe_function(fct, *args):
     """
-    function that print an integer
-
+    Executes a function safely
     Args:
-
-    value: can be any data
-
+        fct: pointer to a function
+        args: arguments passed to function
     Return:
-    true if integer else false 
-
+        Result of the function otherwise, None
     """
-    try: 
-        print("{:d}".format(value))
-    except ( ValueError, StderrError):
-        return False 
+    from sys import stderr
+    try:
+        return fct(*args)
+    except ZeroDivisionError as err:
+        print('Exception: {}'.format(err), file=stderr)
+    except ValueError as va:
+        print('Exception: {}'.format(va), file=stderr)
+    except TypeError as tp:
+        print('Exception: {}'.format(tp), file=stderr)
+    except IndexError as ind:
+        print('Exception: {}'.format(ind), file=stderr) 
